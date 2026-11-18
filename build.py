@@ -138,11 +138,13 @@ def main():
     open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(page(f'{NAME}: {TAG}', home, TAG + '.', '/'))
     am, ab = parse(os.path.join(SRC, 'about.md'))
     open(os.path.join(OUT, 'about.html'), 'w', encoding='utf-8').write(page(f'About | {NAME}', f'<article><h1>{html.escape(am["title"])}</h1>{md(ab)}{callout()}</article>', 'About Faith Leader Hub.', '/about.html'))
-    feeds = json.load(open(os.path.join(SRC, 'feeds.json'), encoding='utf-8'))
+    feeds = [{'name': NAME, 'site': SITE + '/', 'feed': SITE + '/feed.xml',
+              'description': 'Our own practical articles for pastors, church administrators and volunteers. New articles appear here first.'}]
+    feeds += json.load(open(os.path.join(SRC, 'feeds.json'), encoding='utf-8'))
     items = ''.join(f'<li><strong>{html.escape(x["name"])}</strong><div>{html.escape(x["description"])}</div><div class="links">'
                     f'<a href="{html.escape(x["site"])}" rel="noopener">Website</a><a href="{html.escape(x["feed"])}" rel="noopener">RSS feed</a></div></li>' for x in feeds)
     res = (f'<article><h1>Resources: church-leadership feeds</h1><p>Trusted sources we read for church research, news and leadership ideas. '
-           f'Add any of these RSS feeds to your feed reader, along with <a href="/feed.xml">our own feed</a>. Links go to the publishers; '
+           f'Add any of these RSS feeds to your feed reader, starting with our own. Links after the first go to their publishers; '
            f'Faith Leader Hub is not affiliated with them.</p><ul class="feeds">{items}</ul></article>')
     open(os.path.join(OUT, 'resources.html'), 'w', encoding='utf-8').write(page(f'Resources | {NAME}', res, 'RSS feeds from trusted church-leadership publishers.', '/resources.html'))
     priv = ('<article><h1>Privacy</h1><p>This site does not use cookies, analytics or tracking scripts, and it has no forms.</p>'
