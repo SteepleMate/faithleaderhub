@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Lifeway Research",
+    "site": "https://research.lifeway.com/",
+    "feed": "https://research.lifeway.com/feed/",
+    "description": "Survey-based research on churches, pastors and religious practice in the United States."
+  },
+  {
+    "name": "Pew Research Center",
+    "site": "https://www.pewresearch.org/religion/",
+    "feed": "https://www.pewresearch.org/religion/feed/",
+    "description": "Nonpartisan research and data on religion and public life in the United States and worldwide."
+  },
+  {
+    "name": "Christianity Today",
+    "site": "https://www.christianitytoday.com/",
+    "feed": "https://www.christianitytoday.com/feed/",
+    "description": "News, analysis and commentary on the church and Christian life."
+  },
+  {
+    "name": "Religion News Service",
+    "site": "https://religionnews.com/",
+    "feed": "https://religionnews.com/feed/",
+    "description": "Independent news coverage of religion, faith communities and ethics."
+  },
+  {
+    "name": "Episcopal News Service",
+    "site": "https://www.episcopalnewsservice.org/",
+    "feed": "https://www.episcopalnewsservice.org/feed/",
+    "description": "The news service of the Episcopal Church, covering congregations, dioceses and the wider Anglican Communion."
+  },
+  {
+    "name": "Church Answers",
+    "site": "https://churchanswers.com/",
+    "feed": "https://churchanswers.com/feed/",
+    "description": "Articles and podcasts on church health, revitalization and pastoral leadership."
+  },
+  {
+    "name": "Carey Nieuwhof",
+    "site": "https://careynieuwhof.com/",
+    "feed": "https://careynieuwhof.com/feed/",
+    "description": "Articles and podcast episodes on church leadership and ministry practice."
+  },
+  {
+    "name": "ChurchLeaders",
+    "site": "https://churchleaders.com/",
+    "feed": "https://churchleaders.com/feed",
+    "description": "Articles and news for pastors and ministry leaders across many church traditions."
+  }
+]
