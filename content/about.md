@@ -3,7 +3,7 @@ title: About Faith Leader Hub
 slug: about
 ---
 
-Faith Leader Hub is a free, practical resource for the people who keep small and mid-size churches running: pastors, church administrators, office staff and the volunteers who quietly hold everything together.
+Faith Leader Hub is a free, practical resource for the people who keep churches of every size running: pastors, church administrators, office staff and the volunteers who quietly hold everything together.
 
 We write about the everyday work of ministry. That means planning the week in the church office, welcoming guests, scheduling volunteers, keeping records accurate and safe, and choosing the tools that fit your congregation. Our aim is simple, honest advice you can put to use this week, without hype or jargon.
 

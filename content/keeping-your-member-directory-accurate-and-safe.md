@@ -7,7 +7,7 @@ summary: Privacy basics for church directories: what to collect, who should see 
 
 A church directory is an act of trust. When people share their address, phone number or their children's names, they're trusting the church to use that information carefully. Keeping the directory accurate and safe is part of caring for your people well.
 
-Here are the basics for a small or mid-size church.
+Here are the basics for a church of any size.
 
 ## Collect only what you need
 

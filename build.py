@@ -115,7 +115,7 @@ Articles are free to read and share with credit. <a href="/feed.xml">RSS feed</a
 
 def callout():
     return (f'<div class="callout"><strong>Want one place for your people, groups, check-in and calendar?</strong> '
-            f'<a href="{SM}">SteepleMate</a> is church management software built for small and mid-size churches. '
+            f'<a href="{SM}">SteepleMate</a> is church management software for churches of every size, from new plants to large congregations. '
             f'Try it free for 30 days.</div>')
 
 
@@ -134,7 +134,7 @@ def main():
         open(os.path.join(OUT, 'articles', meta['slug'] + '.html'), 'w', encoding='utf-8').write(page(f'{meta["title"]} | {NAME}', content, meta['summary'], f'/articles/{meta["slug"]}.html'))
     cards = ''.join(f'<div class="card"><h2><a href="/articles/{m["slug"]}.html">{html.escape(m["title"])}</a></h2><p>{html.escape(m["summary"])}</p></div>' for m, _ in arts)
     home = (f'<section class="hero"><h1>{TAG}.</h1><p>Short, practical articles for pastors, church administrators and volunteers '
-            f'at small and mid-size churches. Free to read and share.</p></section><div class="cards">{cards}</div>'
+            f'at churches of every size. Free to read and share.</p></section><div class="cards">{cards}</div>'
             f'<div class="callout"><strong>Stay current.</strong> Follow our <a href="/feed.xml">RSS feed</a>, or see '
             f'<a href="/resources.html">trusted church-leadership feeds</a> we read ourselves.</div>{callout()}')
     open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(page(f'{NAME}: {TAG}', home, TAG + '.', '/'))
