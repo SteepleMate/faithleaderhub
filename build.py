@@ -58,15 +58,17 @@ def parse(path):
     return meta, m.group(2).strip()
 
 
-CSS = """:root{--bg:#FBF8F3;--surface:#FFFFFF;--ink:#1F2A30;--ink-2:#4B5961;--ink-3:#7A868C;--line:#E6DFD3;--accent:#2F5D62;--accent-2:#B8873B;--soft:#F1EADF}
-@media (prefers-color-scheme: dark){:root{--bg:#141A1D;--surface:#1B2327;--ink:#ECE7DF;--ink-2:#B9C2C5;--ink-3:#8C979B;--line:#2C373C;--accent:#8FC1C4;--accent-2:#E0B46A;--soft:#20292D}}
+CSS = """:root{--bg:#FBF8F3;--surface:#FFFFFF;--ink:#14202B;--ink-2:#4B5661;--ink-3:#7A848C;--line:#E6DFD3;--accent:#1F3A55;--accent-2:#A7762A;--soft:#F4ECDF}
+@media (prefers-color-scheme: dark){:root{--bg:#141A1D;--surface:#1B2327;--ink:#ECE7DF;--ink-2:#B9C2C5;--ink-3:#8C979B;--line:#2C373C;--accent:#9DB9D6;--accent-2:#D9A957;--soft:#20292D}}
 *{box-sizing:border-box}html,body{margin:0}
 body{background:var(--bg);color:var(--ink);font:17px/1.65 Georgia,"Iowan Old Style","Palatino Linotype",serif;padding:0 16px}
 a{color:var(--accent)}a:hover{color:var(--accent-2)}
 .wrap{max-width:760px;margin:0 auto}
 header{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;padding:22px 0 16px;border-bottom:1px solid var(--line)}
-.brand{font:700 22px/1.1 system-ui,"Segoe UI",sans-serif;color:var(--ink);text-decoration:none;letter-spacing:.01em}
-.brand span{color:var(--accent-2)}
+.brand{display:flex;align-items:center;gap:10px;font:800 22px/1.1 system-ui,"Segoe UI",sans-serif;color:var(--ink);text-decoration:none;letter-spacing:.01em}
+.brand img{width:44px;height:44px;border-radius:9px}
+@media (prefers-color-scheme: dark){.brand img{background:#FBF8F3;padding:3px}}
+.brand span span{color:var(--accent-2)}
 nav{display:flex;flex-wrap:wrap;gap:16px;font:500 14px system-ui,"Segoe UI",sans-serif;margin-left:auto}
 nav a{text-decoration:none;color:var(--ink-2)}nav a:hover{color:var(--accent)}
 .hero{padding:42px 0 18px}.hero h1{font:700 34px/1.2 system-ui,"Segoe UI",sans-serif;margin:0 0 10px}.hero p{color:var(--ink-2);margin:0;font-size:19px}
@@ -98,11 +100,11 @@ def page(title, body, desc, path):
 <link rel="canonical" href="{canon}">
 <link rel="alternate" type="application/rss+xml" title="{NAME}" href="/feed.xml">
 <meta property="og:title" content="{html.escape(title)}"><meta property="og:description" content="{html.escape(desc)}"><meta property="og:url" content="{canon}"><meta property="og:type" content="website">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" type="image/png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta property="og:image" content="{SITE}/logo.png">
 <link rel="stylesheet" href="/style.css">
 </head>
 <body><div class="wrap">
-<header><a class="brand" href="/">Faith Leader <span>Hub</span></a>
+<header><a class="brand" href="/"><img src="/logo.png" alt="" width="44" height="44"><span>Faith Leader <span>Hub</span></span></a>
 <nav><a href="/">Articles</a><a href="/resources.html">Resources</a><a href="/about.html">About</a><a href="/feed.xml">RSS</a><a href="{SM}">SteepleMate</a></nav></header>
 {body}
 <footer>Faith Leader Hub is published by Pentesoft, the team behind <a href="{SM}">SteepleMate</a> church management software.
@@ -155,7 +157,10 @@ def main():
     open(os.path.join(OUT, 'privacy.html'), 'w', encoding='utf-8').write(page(f'Privacy | {NAME}', priv, 'Privacy at Faith Leader Hub.', '/privacy.html'))
     open(os.path.join(OUT, '404.html'), 'w', encoding='utf-8').write(page(f'Not found | {NAME}', '<article><h1>Page not found</h1><p><a href="/">Back to the articles</a>.</p></article>', 'Not found.', '/404.html'))
     open(os.path.join(OUT, 'style.css'), 'w', encoding='utf-8').write(CSS)
-    open(os.path.join(OUT, 'favicon.svg'), 'w', encoding='utf-8').write('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#2F5D62"/><path d="M16 6v20M10 12h12" stroke="#E0B46A" stroke-width="3" stroke-linecap="round"/></svg>')
+    import shutil
+    for src, dst in (('logo-icon-256.png', 'logo.png'), ('favicon-64.png', 'favicon.png'), ('apple-touch-icon.png', 'apple-touch-icon.png')):
+        shutil.copyfile(os.path.join(ROOT, 'assets', src), os.path.join(OUT, dst))
+    if os.path.exists(os.path.join(OUT, 'favicon.svg')): os.remove(os.path.join(OUT, 'favicon.svg'))
     rss_items = ''.join(f'<item><title>{html.escape(m["title"])}</title><link>{SITE}/articles/{m["slug"]}.html</link><guid>{SITE}/articles/{m["slug"]}.html</guid>'
                         f'<pubDate>{format_datetime(datetime.datetime.fromisoformat(m["date"] + "T09:00:00-06:00"))}</pubDate><description>{html.escape(m["summary"])}</description></item>' for m, _ in arts)
     open(os.path.join(OUT, 'feed.xml'), 'w', encoding='utf-8').write(

@@ -1,12 +1,14 @@
-:root{--bg:#FBF8F3;--surface:#FFFFFF;--ink:#1F2A30;--ink-2:#4B5961;--ink-3:#7A868C;--line:#E6DFD3;--accent:#2F5D62;--accent-2:#B8873B;--soft:#F1EADF}
-@media (prefers-color-scheme: dark){:root{--bg:#141A1D;--surface:#1B2327;--ink:#ECE7DF;--ink-2:#B9C2C5;--ink-3:#8C979B;--line:#2C373C;--accent:#8FC1C4;--accent-2:#E0B46A;--soft:#20292D}}
+:root{--bg:#FBF8F3;--surface:#FFFFFF;--ink:#14202B;--ink-2:#4B5661;--ink-3:#7A848C;--line:#E6DFD3;--accent:#1F3A55;--accent-2:#A7762A;--soft:#F4ECDF}
+@media (prefers-color-scheme: dark){:root{--bg:#141A1D;--surface:#1B2327;--ink:#ECE7DF;--ink-2:#B9C2C5;--ink-3:#8C979B;--line:#2C373C;--accent:#9DB9D6;--accent-2:#D9A957;--soft:#20292D}}
 *{box-sizing:border-box}html,body{margin:0}
 body{background:var(--bg);color:var(--ink);font:17px/1.65 Georgia,"Iowan Old Style","Palatino Linotype",serif;padding:0 16px}
 a{color:var(--accent)}a:hover{color:var(--accent-2)}
 .wrap{max-width:760px;margin:0 auto}
 header{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;padding:22px 0 16px;border-bottom:1px solid var(--line)}
-.brand{font:700 22px/1.1 system-ui,"Segoe UI",sans-serif;color:var(--ink);text-decoration:none;letter-spacing:.01em}
-.brand span{color:var(--accent-2)}
+.brand{display:flex;align-items:center;gap:10px;font:800 22px/1.1 system-ui,"Segoe UI",sans-serif;color:var(--ink);text-decoration:none;letter-spacing:.01em}
+.brand img{width:44px;height:44px;border-radius:9px}
+@media (prefers-color-scheme: dark){.brand img{background:#FBF8F3;padding:3px}}
+.brand span span{color:var(--accent-2)}
 nav{display:flex;flex-wrap:wrap;gap:16px;font:500 14px system-ui,"Segoe UI",sans-serif;margin-left:auto}
 nav a{text-decoration:none;color:var(--ink-2)}nav a:hover{color:var(--accent)}
 .hero{padding:42px 0 18px}.hero h1{font:700 34px/1.2 system-ui,"Segoe UI",sans-serif;margin:0 0 10px}.hero p{color:var(--ink-2);margin:0;font-size:19px}
